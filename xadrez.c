@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /*Desafio Peças de Xadrez 
-Nível Novato: Torre, bispo e rainha.
+Nível Aventureiro: Torre, bispo, rainha e cavalo.
 Tema 4 - Movimentação de Peças de Xadrez
-Objetivo: No nível Novato, você começará implementando a lógica básica de movimentação das peças usando while, do-while e for.
+Objetivo: Implementando a lógica básica de movimentação das peças usando while, do-while e for.
 Aluno: Fábio Oliveira Nunes Matrícula: 202601102478*/ 
 
 
@@ -41,6 +41,24 @@ int main() {
         printf("Esquerda\n");
         esquerda++;
     } while (esquerda < 8);
+
+    printf("\n");
+
+    // Mover Cavalo 2 casas para baixo e 1 para esquerda usando for e while
+    
+    printf("Movimentação do Cavalo:\n");
+
+    int baixo;
+
+    for(baixo = 0; baixo < 2; baixo++){
+        printf("Baixo\n");
+        while (baixo == 1) {
+        printf("Esquerda\n");
+        baixo++;
+        }
+    }
+
+    printf("\n");
 
     return 0;
 }
