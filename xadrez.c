@@ -1,60 +1,67 @@
 #include <stdio.h>
 
 /*Desafio Peças de Xadrez 
-Nível Aventureiro: Torre, bispo, rainha e cavalo.
+Nível Mestre: Implantando recursividade no movimento da Torre e Rainha. Bispo: loops aninhados. Muda a movimentação do cavalo.
 Tema 4 - Movimentação de Peças de Xadrez
-Objetivo: Implementando a lógica básica de movimentação das peças usando while, do-while e for.
+Objetivo: Implementando a lógica básica de movimentação das peças usando while, do-while, for e recursividade.
 Aluno: Fábio Oliveira Nunes Matrícula: 202601102478*/ 
 
+// 1. RECURSIVIDADE para a Torre (5 casas Direita)
+void moverTorre(int Tdireita) {
+    if (Tdireita < 5) {
+        printf("Direita\n");
+        moverTorre(Tdireita + 1);
+    }
+}
 
-
+// 2. RECURSIVIDADE para a Rainha (8 casas Esquerda)
+void moverRainha(int Resquerda) {
+    if (Resquerda < 8) {
+        printf("Esquerda\n");
+        moverRainha(Resquerda + 1);
+    }
+}
 int main() {
 
-   // Mover a Torre 5 casas para a direita
+    // Mover a TORRE 5 casas para a direita usando recursividade
 
-   printf("Movimentação da Torre:\n");
+    printf("Movimentação da Torre:\n");
 
-   for (int direita = 0; direita < 5; direita++) {
+    moverTorre(0);
+
+    printf("\n"); // Adiciona uma linha em branco para separar as movimentações
+
+    // Mover o BISPO 5 casas para a diagonal superior direita usando loops aninhados
+    // Atendendo ao requisito: Externo (Vertical) e Interno (Horizontal)
+    
+    printf("Movimentação do Bispo:\n");
+
+    for (int i = 0; i < 5; i++) {     // Loop Externo: Vertical (Cima)
+        for (int j = 0; j < 1; j++) { // Loop Interno: Horizontal (Direita)
+            printf("Cima ");
+        }
         printf("Direita\n");
     }
 
     printf("\n"); // Adiciona uma linha em branco para separar as movimentações
 
-    // Mover o Bispo 5 casas para a diagonal superior direita
-
-    printf("Movimentação do Bispo:\n");
-
-    int cimaDireita = 0; //cimaDireita = diagonal superior direita
-    while (cimaDireita < 5) {
-        printf("Cima Direita\n");
-        cimaDireita++;
-    }
-
-    printf("\n"); // Adiciona uma linha em branco para separar as movimentações
-
-    // Mover a Rainha 8 casas para baixo
+    // Mover a Rainha 8 casas para esquerda (usando recursividade)
 
     printf("Movimentação da Rainha:\n");
 
-    int esquerda = 0;
-    do {
-        printf("Esquerda\n");
-        esquerda++;
-    } while (esquerda < 8);
+    moverRainha(0);
 
     printf("\n");
 
-    // Mover Cavalo 2 casas para baixo e 1 para esquerda usando for e while
+    // Mover Cavalo 2 casas para cima e para direita usando for e while
     
     printf("Movimentação do Cavalo:\n");
 
-    int baixo;
-
-    for(baixo = 0; baixo < 2; baixo++){
-        printf("Baixo\n");
-        while (baixo == 1) {
-        printf("Esquerda\n");
-        baixo++;
+        for(int Cdireita = 0; Cdireita < 2; Cdireita++){
+        printf("Cima\n");
+        while (Cdireita == 1) {
+        printf("Direita\n");
+        Cdireita++;
         }
     }
 
